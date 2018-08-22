@@ -57,9 +57,12 @@ secondary:
 * interact with a Python "server" over the network/stdio
   * every web app ever
   * subprocesses
+  * [node: python-bridge](https://github.com/Submersible/node-python-bridge)
 * support Python natively in the browser (e.g. [embed CPython](https://docs.python.org/3/c-api/intro.html#embedding-python) in the browser binary)
 
 The easiest would probably be interacting with Python over the network/stdio.  However, it's probably the least efficient.
+
+In the Node.js world there's also the option of using [an "addon"](https://nodejs.org/api/addons.html) to expose Python.
 
 #### technical concerns
 
