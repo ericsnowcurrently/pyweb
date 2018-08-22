@@ -62,7 +62,7 @@ secondary:
 
 The easiest would probably be interacting with Python over the network/stdio.  However, it's probably the least efficient.
 
-In the Node.js world there's also the option of using [an "addon"](https://nodejs.org/api/addons.html) to expose Python.
+Note: In the Node.js world there's also the option of using [an "addon"](https://nodejs.org/api/addons.html) to expose Python.  However, this is not a cross-platform solution.
 
 #### technical concerns
 
