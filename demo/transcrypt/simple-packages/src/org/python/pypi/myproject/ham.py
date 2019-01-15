@@ -4,4 +4,8 @@
 import time
 
 
+def now():
+    return time.time()
+
+
 print(__name__)

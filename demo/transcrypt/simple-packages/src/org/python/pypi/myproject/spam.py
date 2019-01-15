@@ -7,4 +7,16 @@ import org.python.pypi.myproject.eggs.eggs as eggs
 #from .eggs import eggs
 
 
+def get_menu():
+    now = org.python.pypi.myproject.ham.now()
+    return now, [
+        __name__,
+        __name__,
+        org.python.pypi.myproject.ham.__name__,
+        eggs.__name__,
+        __name__,
+        __name__,
+        __name__,
+        ]
+
 print(__name__)
