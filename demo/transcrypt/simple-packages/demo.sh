@@ -1,5 +1,8 @@
 set -e
 
+VERBOSE=1
+#VERBOSE=0
+
 #python3 -m pip install --user transcrypt
 #sudo apt install default-jre
 
@@ -13,40 +16,42 @@ echo
 echo '#vvvvvvvvvvvvvvvvvvvvvv'
 cat src/spam.py
 echo '#^^^^^^^^^^^^^^^^^^^^^^'
-echo
-echo '#vvvvvvvvvvvvvvvvvvvvvv'
-cat src/org/python/pypi/myproject/spam.py
-echo '#^^^^^^^^^^^^^^^^^^^^^^'
-echo
-echo '#vvvvvvvvvvvvvvvvvvvvvv'
-cat src/org/python/pypi/myproject/ham.py
-echo '#^^^^^^^^^^^^^^^^^^^^^^'
-echo
-echo '#vvvvvvvvvvvvvvvvvvvvvv'
-cat src/org/__init__.py
-echo '#^^^^^^^^^^^^^^^^^^^^^^'
-#echo
-#echo '#----------------------'
-#cat src/org/python/__init__.py
-#echo '#----------------------'
-#echo
-#echo '#----------------------'
-#cat src/org/python/pypi/__init__.py
-#echo '#----------------------'
-#echo
-#echo '#----------------------'
-#cat src/org/python/pypi/myproject/__init__.py
-#echo '#----------------------'
-#echo
-#echo '#----------------------'
-#cat src/org/python/pypi/myproject/eggs/__init__.py
-#echo '#----------------------'
-#echo
-#echo '#----------------------'
-#cat src/org/python/pypi/myproject/eggs/eggs.py
-#echo '#----------------------'
-echo
-echo '(All other files look like that last one.)'
+if [ $VERBOSE -ne 0 ]; then
+    echo
+    echo '#vvvvvvvvvvvvvvvvvvvvvv'
+    cat src/org/python/pypi/myproject/spam.py
+    echo '#^^^^^^^^^^^^^^^^^^^^^^'
+    echo
+    echo '#vvvvvvvvvvvvvvvvvvvvvv'
+    cat src/org/python/pypi/myproject/ham.py
+    echo '#^^^^^^^^^^^^^^^^^^^^^^'
+    echo
+    echo '#vvvvvvvvvvvvvvvvvvvvvv'
+    cat src/org/__init__.py
+    echo '#^^^^^^^^^^^^^^^^^^^^^^'
+    #echo
+    #echo '#----------------------'
+    #cat src/org/python/__init__.py
+    #echo '#----------------------'
+    #echo
+    #echo '#----------------------'
+    #cat src/org/python/pypi/__init__.py
+    #echo '#----------------------'
+    #echo
+    #echo '#----------------------'
+    #cat src/org/python/pypi/myproject/__init__.py
+    #echo '#----------------------'
+    #echo
+    #echo '#----------------------'
+    #cat src/org/python/pypi/myproject/eggs/__init__.py
+    #echo '#----------------------'
+    #echo
+    #echo '#----------------------'
+    #cat src/org/python/pypi/myproject/eggs/eggs.py
+    #echo '#----------------------'
+    echo
+    echo '(All other files look like that last one.)'
+fi
 
 echo
 read -n1 -r -p "Paused.  Hit any key to continue..." KEY
