@@ -1,0 +1,107 @@
+transcrypt -h
+
+#############################
+# enable Python features
+
+  -c, --complex         enable complex number support, locally requires
+                        operator overloading
+  -d, --docat           enable __doc__ attributes. Apply sparsely, since it
+                        will make docstrings part of the generated code
+  -g, --gen             enable generators and iterators. Disadvised, since it
+                        will result in a function call for each loop
+                        iteration. Preferably use __pragma__ ('gen') and
+                        __pragma__ ('nogen')
+  -k, --kwargs          enable keyword arguments by default. In general this
+                        is disadvised, use __pragma__ ('kwargs') and
+                        __pragma__('nokwargs') locally instead to prevent
+                        bloated code
+  -o, --opov            enable operator overloading by default. In general
+                        this is disadvised, use __pragma__ ('opov') and
+                        __pragma__('noopov') locally instead to prevent slow
+                        code
+  -sf, --sform          enable support for string formatting mini language
+  -xg, --xglobs         allow use of the 'globals' function
+
+
+#############################
+# use JS features
+
+  -f, --fcall           enable fastcall mechanism by default. You can also use
+                        __pragma__ ('fcal') and __pragma__ ('nofcall')
+  -jc, --jscall         enable native JavaScript calls for Python methods.
+                        This is fast, but doesn't support bound method
+                        assignment, decorators and non-instance methods.
+                        Preferably use __pragma__ ('jscall') and __pragma__
+                        ('nojscall') to enable native JavaScript calls locally
+  -jk, --jskeys         interpret {key: 'value'} as {'key': 'value'} and
+                        forbid {key (): 'value'}, as JavaScript does.
+                        Disadvised, since it's less flexible than the Python
+                        interpretation. Either follow Python semantics by
+                        using {'key': 'value'} explicitly if you want literal
+                        keys or use __pragma__ ('jskeys') and __pragma__
+                        ('nojskeys') locally instead to make clear local
+                        deviation from Python semantics
+  -jm, --jsmod          give % and %= JavaScript rather than Python behaviour.
+                        Disadvised, since it deviates from the mathematical
+                        'modulo' operator. Either follow Python semantics or
+                        use __pragma__ ('jsmod') and __pragma__ ('nojsmod')
+                        locally instead to make clear local deviation.
+
+
+#############################
+# optimizations
+
+  -i, --iconv           enable automatic conversion to iterable by default.
+                        Disadvised, since it will result in a type check for
+                        each for-loop. Preferably use __pragma__ ('iconv') and
+                        __pragma__ ('noiconv') to enable automatic conversion
+                        locally
+  -kc, --keycheck       enable checking for existence of dictionary keys. In
+                        general this is disadvised, use __pragma__
+                        ('keycheck') and __pragma__('nokeycheck') locally
+                        instead to prevent bloated code
+  -t, --tconv           enable automatic conversion to truth value by default.
+                        Disadvised, since it will result in a conversion for
+                        each boolean. Preferably use __pragma__ ('tconv') and
+                        __pragma__ ('notconv') to enable automatic conversion
+                        locally
+
+
+#############################
+# debug
+
+  -da, --dassert        debug: activate assertions
+  -dc, --dcheck         debug: perform lightweight consistency check
+  -de, --dextex         debug: show extended exception reports
+  -dl, --dlog           debug: log compiler messages to disk
+  -dm, --dmap           debug: dump human readable source map
+  -dn, --dnostrip       debug: no comment stripping of __core__ and
+                        __builtin__ in-line modules
+  -ds, --dstat          debug: validate static typing using annotations
+  -dt, --dtree          debug: dump syntax tree
+
+
+#############################
+# files and modules
+
+  -a, --anno            annotate target files that were compiled from Python
+                        with source file names and source line numbers
+  -am, --alimod         use aliasing for module paths
+  -m, --map             generate source map
+  -xp [XPATH], --xpath [XPATH]
+                        additional module search paths, joined by $, #'s will
+                        be replaced by spaces
+
+
+#############################
+# other
+
+  -s [SYMBOLS], --symbols [SYMBOLS]
+                        names, joined by $, separately passed to main module
+                        in __symbols__ variable
+  -x X, --x X           reserved for extended options
+  -xr, --xreex          re-export all imported names
+  -xt, --xtiny          generate tiny version of runtime, a.o. lacking support
+                        for implicit and explicit operator overloading. Use
+                        only if generated code can be validated, since it will
+                        introduce semantic alterations in edge cases
