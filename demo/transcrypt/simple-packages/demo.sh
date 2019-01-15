@@ -87,6 +87,13 @@ set -x
 transcrypt -b --nomin --parent .none src/spam.py
 { set +x; } 2> /dev/null
 
+if [ $VERBOSE -ne 0 ]; then
+    set -x
+    tree src/__target__
+    { set +x; } 2> /dev/null
+fi
+
+echo
 read -n1 -r -p "Paused.  Hit any key to continue..." KEY
 
 echo
@@ -117,6 +124,12 @@ echo '<running the typescript compiler>'
 echo
 set -x
 &>/dev/null tsc src/__target__/spam.ts || { set +x; } 2> /dev/null || true
+
+if [ $VERBOSE -ne 0 ]; then
+    set -x
+    tree src/__target__
+    { set +x; } 2> /dev/null
+fi
 
 echo
 read -n1 -r -p "Paused.  Hit any key to continue..." KEY
