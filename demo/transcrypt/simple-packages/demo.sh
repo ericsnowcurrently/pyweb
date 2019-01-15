@@ -1,4 +1,4 @@
-set -e
+#set -e
 
 VERBOSE=1
 #VERBOSE=0
@@ -62,8 +62,7 @@ echo '#############################'
 echo '# running the script with Python'
 echo
 set -x
-python3 src/spam.py
-{ set +x; } 2> /dev/null
+python3 src/spam.py || { set +x; } 2> /dev/null || true
 
 echo
 read -n1 -r -p "Paused.  Hit any key to continue..." KEY
@@ -118,7 +117,6 @@ echo '<running the typescript compiler>'
 echo
 set -x
 &>/dev/null tsc src/__target__/spam.ts || { set +x; } 2> /dev/null || true
-#{ set +x; } 2> /dev/null
 
 echo
 read -n1 -r -p "Paused.  Hit any key to continue..." KEY

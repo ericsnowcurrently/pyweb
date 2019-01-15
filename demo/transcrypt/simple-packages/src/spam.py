@@ -7,3 +7,8 @@ import org.python.pypi.myproject
 import org.python.pypi.myproject.spam
 
 print('spam')
+
+def fail():
+    raise Exception('oops!')
+
+fail()
