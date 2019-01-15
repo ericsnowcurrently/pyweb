@@ -6,4 +6,5 @@ import org.python.pypi.myproject.eggs.eggs as eggs
 #from . import ham
 #from .eggs import eggs
 
-print('org.python.pypi.myproject.spam')
+
+print(__name__)

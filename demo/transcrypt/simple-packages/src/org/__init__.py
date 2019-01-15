@@ -1,3 +1,3 @@
 # org/__init__.py
 
-print('org')
+print(__name__)
